@@ -91,7 +91,6 @@
       line-width: 1;
       }
 }
-
 #highways_labels [ref!=''][zoom=9] {
     [highway='motorway'],
     [highway='trunk']{
