@@ -13,7 +13,7 @@
 
 Map {
   background-color: black;
-  srs: '+proj=eqdc +lat_1=56 +lat_2=57 +lat_0=60 +lon_0=31';
+  srs:'+proj=tmerc +lat_0=0 +lon_0=27 +k=1 +x_0=5500000 +y_0=0 +ellps=krass +towgs84=24.47,-130.89,-81.56,-0,-0,0.13,-0.22 +units=m +no_defs';
   font-directory: url(./fonts/);  
 }
 
@@ -35,11 +35,10 @@ Map {
     text-face-name: @sans_book;
     text-name: '[a_hsnmbr]';
     text-fill: white;
-    text-opacity: 0.7;
     text-size: 9;
     text-halo-radius: 1;
     text-halo-fill:@halo;
-    text-allow-overlap: true;
+    text-allow-overlap: false;
 }  
 
 #boundaries_pol {
@@ -77,7 +76,7 @@ Map {
 
 
 
-#boundaries_labels [zoom=8] {
+#boundaries_labels [zoom>6][zoom<9] {
     text-face-name: @sans_bold;
     text-name: '[name]';
     text-size: 12;
@@ -249,7 +248,7 @@ Map {
     text-character-spacing: 1.1;
 }    
 
-#lakes_labels [area>=1000000][zoom>10][zoom<15][waterway!='riverbank']{
+#lakes_labels [square>=1000000][zoom>10][zoom<15][waterway!='riverbank']{
     text-face-name: @sans_italic;
     text-name: '[name]';
     text-size: 10;
@@ -258,7 +257,7 @@ Map {
     text-halo-fill:@halo;
     text-allow-overlap: false;
 }  
-#lakes_labels [area<=1000000][area>=200000]
+#lakes_labels [square<=1000000][square>=200000]
               [zoom>=15][waterway!='riverbank']{
     text-face-name: @sans_italic;
     text-name: '[name]';
